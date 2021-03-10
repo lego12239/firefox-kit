@@ -11,3 +11,8 @@ Update
 ======
 
 - cd YOUR_DIR && git pull
+
+Notes
+=====
+- I had not working mouse wheel scrolling; to fix this i place in my browser start script "export MOZ_USE_XINPUT2=0" before firefox start line;
+- I had not working http basic auth until i disabled "Browsec VPN - Free VPN for Firefox" addon.
