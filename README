@@ -1,5 +1,5 @@
-Setup
-=====
+Setup kit
+=========
 
 - make a directory where this kit will be reside(e.g. /var/kits)
 - edit firefox-kit.REPOS.CONF to replace /var/kits with your directory
@@ -7,10 +7,15 @@ Setup
 - cd YOUR_DIR && git clone https://github.com/lego12239/firefox-kit.git
 - cp firefox-kit.REPOS.CONF /etc/portage/repos.conf/firefox-kit
 
-Update
-======
+Update kit
+==========
 
 - cd YOUR_DIR && git pull
+
+Upgrade firefox
+===============
+
+- emerge -au firefox
 
 Notes
 =====
