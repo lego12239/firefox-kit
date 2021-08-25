@@ -63,8 +63,8 @@ SLOT="0/esr$(ver_cut 1)"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="+clang cpu_flags_arm_neon dbus debug eme-free geckodriver +gmp-autoupdate
 	hardened hwaccel jack lto +openh264 pgo pulseaudio screencast selinux
-	+system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent
-	+system-libvpx +system-webp wayland wifi"
+	+system-av1 system-harfbuzz +system-icu +system-jpeg +system-libevent
+	+system-libvpx system-webp wayland wifi"
 
 REQUIRED_USE="debug? ( !system-av1 )
 	screencast? ( wayland )
