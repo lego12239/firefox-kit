@@ -17,6 +17,10 @@ Upgrade firefox
 
 - emerge -au firefox
 
+Discussion
+==========
+https://forums.funtoo.org/topic/4881-firefox-esr-kit/
+
 Notes
 =====
 - I had not working mouse wheel scrolling; to fix this i placed in my browser start script "export MOZ_USE_XINPUT2=0" before firefox start line;
