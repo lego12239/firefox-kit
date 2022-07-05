@@ -1,13 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI="7"
 
 FIREFOX_PATCHSET="firefox-91esr-patches-10j.tar.xz"
 
-LLVM_MAX_SLOT=14
+LLVM_MAX_SLOT=11
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{7..9} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 WANT_AUTOCONF="2.1"
@@ -110,6 +110,14 @@ BDEPEND="${PYTHON_DEPS}
 			clang? (
 				=sys-devel/lld-12*
 				pgo? ( =sys-libs/compiler-rt-sanitizers-12*[profile] )
+			)
+		)
+		(
+			sys-devel/clang:11
+			sys-devel/llvm:11
+			clang? (
+				=sys-devel/lld-11*
+				pgo? ( =sys-libs/compiler-rt-sanitizers-11*[profile] )
 			)
 		)
 	)
