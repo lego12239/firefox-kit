@@ -1,13 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 FIREFOX_PATCHSET="firefox-102esr-patches-05j.tar.xz"
 
-LLVM_MAX_SLOT=14
+LLVM_MAX_SLOT=13
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{7..9} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 WANT_AUTOCONF="2.1"
@@ -64,7 +64,7 @@ LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 
 IUSE="+clang cpu_flags_arm_neon dbus debug eme-free hardened hwaccel"
 IUSE+=" jack libproxy lto +openh264 pgo pulseaudio sndio selinux"
-IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx system-png system-python-libs +system-webp"
+IUSE+=" system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx system-png system-python-libs system-webp"
 IUSE+=" wayland wifi"
 
 # Firefox-only IUSE
@@ -102,7 +102,7 @@ BDEPEND="${PYTHON_DEPS}
 			sys-devel/clang:13
 			sys-devel/llvm:13
 			clang? (
-				sys-devel/lld:13
+				=sys-devel/lld-13*
 				pgo? ( =sys-libs/compiler-rt-sanitizers-13*[profile] )
 			)
 		)
@@ -211,8 +211,8 @@ llvm_check_deps() {
 	fi
 
 	if use clang ; then
-		if ! has_version -b "sys-devel/lld:${LLVM_SLOT}" ; then
-			einfo "sys-devel/lld:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+		if ! has_version -b "=sys-devel/lld-${LLVM_SLOT}*" ; then
+			einfo "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
 			return 1
 		fi
 
